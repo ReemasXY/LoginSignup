@@ -104,6 +104,7 @@ app.post(
         res
           .cookie("authToken", token, {
             httpOnly: true,
+            sameSite: "none",
           })
           .json({ success: "Logged in Successfully", token: token });
       } catch (error) {

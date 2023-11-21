@@ -104,7 +104,9 @@ app.post(
         res
           .cookie("authToken", token, {
             httpOnly: true,
-            secure: false,
+            path: "/",
+            secure: true,
+            sameSite: "none",
           })
           .json({ success: "Logged in Successfully", token: token });
       } catch (error) {
@@ -132,7 +134,9 @@ app.get("/user/logout", async (req, res) => {
     res
       .clearCookie("authToken", {
         httpOnly: true,
-        secure: false,
+        path: "/",
+        sameSite: "none",
+        secure: true,
       })
       .json("sent");
   } catch (error) {

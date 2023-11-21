@@ -104,7 +104,7 @@ app.post(
           .cookie("authToken", token, {
             httpOnly: true,
           })
-          .json({ success: "Logged in Successfully" });
+          .json({ success: "Logged in Successfully", token: token });
       } catch (error) {
         return res.json({ errors: "Internal Server Error" + error });
       }

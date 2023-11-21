@@ -51,10 +51,10 @@ const Login = () => {
     });
     const response = await GetUser;
     const result = await response.json();
-    console.log(result);
     if (!result.errors) {
+      console.log(result);
       showToast("success", "Logged in Successfully");
-      localStorage.setItem("authtoken", result.authToken);
+
       navigation("/");
     } else {
       console.log(result.errors);

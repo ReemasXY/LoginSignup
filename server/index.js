@@ -95,16 +95,17 @@ app.post(
             .status(400)
             .json({ errors: "Please login with correct credentials" });
         }
-
+        console.log(validUser.id, jwtSecret);
         const token = jwt.sign(
           { userId: validUser.id, username: validUser.username },
           jwtSecret
         );
+        console.log(token);
         res
           .cookie("authToken", token, {
             httpOnly: true,
           })
-          .json({ success: "Logged in Successfully" });
+          .json({ success: "Logged in Successfully", token: token });
       } catch (error) {
         return res.json({ errors: "Internal Server Error" + error });
       }

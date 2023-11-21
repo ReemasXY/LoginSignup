@@ -8,6 +8,7 @@ const Navbar = ({ setLogin }) => {
   const { showToast } = Toast;
   useEffect(() => {
     (async () => {
+      console.log(import.meta.env.VITE_HOST + "/user/info");
       const response = await fetch(import.meta.env.VITE_HOST + "/user/info", {
         credentials: "include",
       });

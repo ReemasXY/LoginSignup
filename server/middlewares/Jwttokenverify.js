@@ -4,7 +4,7 @@ const verifyToken = (req, res, next) => {
     console.log(req.cookies);
     const { authToken } = req.cookies;
     if (!authToken) {
-      return res.json({ errors: "No Token", cookie: req.cookie });
+      return res.json({ errors: "No Token", cookies: req.cookie });
     }
 
     const jwtVerification = jwt.verify(authToken, process.env.JWT_SECRET);

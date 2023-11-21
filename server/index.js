@@ -118,6 +118,7 @@ app.post(
 // Route 3: get the user info for the navigation bar
 app.get("/user/info", verifyToken, async (req, res) => {
   try {
+    console.log(req.cookies);
     res.json(req.user);
   } catch (error) {
     return res.json({ errors: "Internal Server Error" + error });
